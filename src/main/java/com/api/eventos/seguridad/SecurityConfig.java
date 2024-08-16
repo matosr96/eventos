@@ -61,11 +61,11 @@ public class SecurityConfig {
                 .authorizeHttpRequests() // Toda petición http debe ser autorizada
                 .requestMatchers("/api/v1/crear-usuario").permitAll()
                 .requestMatchers("/api/v1/iniciar-sesion").permitAll()
-                .requestMatchers(HttpMethod.POST, "/api/v1/**").hasAnyAuthority("ADMIN", "USER")
-                .requestMatchers(HttpMethod.GET, "/api/v1/**").hasAnyAuthority("ADMIN", "USER")
-                .requestMatchers(HttpMethod.GET, "/api/v1/**").hasAnyAuthority("ADMIN", "USER")
-                .requestMatchers(HttpMethod.DELETE, "/api/v1/**").hasAnyAuthority("ADMIN", "USER")
-                .requestMatchers(HttpMethod.PUT, "/api/v1/**").hasAnyAuthority("ADMIN", "USER")
+                .requestMatchers(HttpMethod.POST, "/api/v1/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/v1/**").permitAll()
+                .requestMatchers(HttpMethod.GET, "/api/v1/**").permitAll()
+                .requestMatchers(HttpMethod.DELETE, "/api/v1/**").permitAll()
+                .requestMatchers(HttpMethod.PUT, "/api/v1/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic();
